@@ -25,17 +25,8 @@ public interface EmployeeService {
 
 	Employee saveEmployeeImage(Long id,MultipartFile file) throws IOException;
 
-    public List<Employee> getAllEmployee();
-
     public Optional<Employee> getEmployeeById(Long id);
 
-    public Employee saveEmployee(Employee employee);
-
-    Employee updateEmployee(Long id, Employee employee);
-
-    public String deleteEmployee();
-
-    public String deleteEmployeeById(Long id);
 
 
 }

@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,12 +34,12 @@ public class EmployeeServiceImple implements EmployeeService {
         return employeeRepository.findEmployeeByEmpId(empId);
     }
 
-//	@Override
-//	public Optional<Employee> getEmployeeById(Long id) {
-//
-//			// TODO Auto-generated method stub
-//		return employeeRepository.findById(id);
-//	}
+	@Override
+	public Optional<Employee> getEmployeeById(Long id) {
+
+			// TODO Auto-generated method stub
+		return employeeRepository.findById(id);
+	}
 
     @Override
     public Employee saveEmployee(Employee employee) {
@@ -97,49 +98,7 @@ public class EmployeeServiceImple implements EmployeeService {
 
 
 
-	@Override
-	public List<Employee> getAllEmployee() {
-		// TODO Auto-generated method stub
-		return employeeRepository.findAll();
-	}
 
-	@Override
-	public Optional<Employee> getEmployeeById(Long id) {
-		// TODO Auto-generated method stub
-		return employeeRepository.findById(id);
-	}
-	
-	@Override
-	public Employee saveEmployee(Employee employee) {
-		// TODO Auto-generated method stub
-		return employeeRepository.save(employee);
-	}
-
-
-
-
-	@Override
-	public String deleteEmployee() {
-		// TODO Auto-generated method stub
-		employeeRepository.deleteAll();
-		return "deleted";
-	}
-
-	@Override
-	public String deleteEmployeeById(Long id) {
-		employeeRepository.deleteById(id);
-		return "Deleted Successfully "+id;
-	}
-
-	@Override
-	public Employee updateEmployee(Long id, Employee employee) {
-		Employee existingEmployee = employeeRepository.findById(id).get();
-		existingEmployee.setEmpName(employee.getEmpName());
-		existingEmployee.setDepartment(employee.getDepartment());
-		existingEmployee.setEmailId(employee.getEmailId());
-		existingEmployee.setRole(employee.getRole());
-		return employeeRepository.save(existingEmployee);
-	}
 
 
 }

@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import com.example.demo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,18 +25,6 @@ public class EmployeeRestController {
     @Autowired
     private EmployeeService employeeService;
 
-    @Autowired
-    private EmployeeServiceImple employeeServiceImple;
-
-    @GetMapping("/getAll")
-    public List<Employee> obtainAllEmployee() {
-        return employeeServiceImple.getAllEmployee();
-    }
-
-//	@GetMapping("/get/{id}")
-//	public Optional<Employee> obtainEmployeeById(@PathVariable Long id){
-//		return employeeServiceImple.getEmployeeById(id);
-//	}
 
     @GetMapping("/{id}")
     public Employee findByEmployeeId(@PathVariable("id") Long empId) {
@@ -54,11 +43,6 @@ public class EmployeeRestController {
         return "Deleted Successfully";
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String eraseEmployeeById(@PathVariable Long id) {
-        employeeServiceImple.deleteEmployeeById(id);
-        return "Deleted " + id;
-    }
 
     // ************** IMAGE UPLOAD *************
 
@@ -109,22 +93,8 @@ public class EmployeeRestController {
 		return employeeServiceImple.getEmployeeById(id);
 	}
 
-	@PostMapping("/post")
-	public Employee storeEmployee(@RequestBody Employee employee) {
-		return employeeServiceImple.saveEmployee(employee);
-	}
 
-	@DeleteMapping("/deleteAll")
-	public String eraseEmployee() {
-		employeeServiceImple.deleteEmployee();
-		return "Deleted Successfully";
-	}
 
-	@DeleteMapping("/delete/{id}")
-	public String eraseEmployeeById(@PathVariable Long id) {
-		employeeServiceImple.deleteEmployeeById(id);
-		return "Deleted " + id;
-	}
 
 	@PutMapping("/update/{id}")
 	public Employee modifyEmployee(@PathVariable Long id, @RequestBody Employee employee){
