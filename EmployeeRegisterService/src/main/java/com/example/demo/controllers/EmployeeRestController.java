@@ -42,7 +42,7 @@ public class EmployeeRestController {
 		employeeServiceImple.deleteEmployeeById(id);
 		return "Deleted " + id;
 	}
-
+	//update details
 	@PutMapping("/update/{id}")
 	public Employee modifyEmployee(@PathVariable Long id, @RequestBody Employee employee){
 		return employeeServiceImple.updateEmployee(id, employee);
