@@ -1,84 +1,110 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.nio.file.FileStore;
 
 @Entity
 public class Employee {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long empId;
-	private String empName;
-	private String department;
-	private String emailId;
-	
-	@Enumerated(EnumType.STRING)
-	private Role role;
-	
-	public Employee() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long empId;
+    private String empName;
+    private String department;
+    private String emailId;
+    private String fileName;
+    private String filePath;
 
-	public Employee(Long empId, String empName, String department, String emailId, Role role) {
-		super();
-		this.empId = empId;
-		this.empName = empName;
-		this.department = department;
-		this.emailId = emailId;
-		this.role = role;
-	}
+    public Employee(String fileName, String filePath) {
+        this.fileName = fileName;
+        this.filePath = filePath;
+    }
 
-	public Long getEmpId() {
-		return empId;
-	}
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
-	public void setEmpId(Long empId) {
-		this.empId = empId;
-	}
+//	public Employee(String fileName, String contentType, byte[] bytes) {
+//		super();
+//		// TODO Auto-generated constructor stub
+//	}
 
-	public String getEmpName() {
-		return empName;
-	}
+    public Long getEmpId() {
+        return empId;
+    }
 
-	public void setEmpName(String empName) {
-		this.empName = empName;
-	}
+    public void setEmpId(Long empId) {
+        this.empId = empId;
+    }
 
-	public String getDepartment() {
-		return department;
-	}
+    public String getEmpName() {
+        return empName;
+    }
 
-	public void setDepartment(String department) {
-		this.department = department;
-	}
+    public void setEmpName(String empName) {
+        this.empName = empName;
+    }
 
-	public String getEmailId() {
-		return emailId;
-	}
+    public String getDepartment() {
+        return department;
+    }
 
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
+    public void setDepartment(String department) {
+        this.department = department;
+    }
 
-	public Role getRole() {
-		return role;
-	}
+    public String getEmailId() {
+        return emailId;
+    }
 
-	public void setRole(Role role) {
-		this.role = role;
-	}
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
 
-	@Override
-	public String toString() {
-		return "Employee [empId=" + empId + ", empName=" + empName + ", department=" + department + ", emailId="
-				+ emailId + ", role=" + role + "]";
-	}
-	
-	
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public Employee() {
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public Employee(Long empId, String empName, String department, String emailId, Role role) {
+        super();
+        this.empId = empId;
+        this.empName = empName;
+        this.department = department;
+        this.emailId = emailId;
+        this.role = role;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "empId=" + empId +
+                ", empName='" + empName + '\'' +
+                ", department='" + department + '\'' +
+                ", emailId='" + emailId + '\'' +
+                ", role=" + role +
+                '}';
+    }
 }
